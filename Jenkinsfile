@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/rahulsanghavimca009/springboot-hello.git'
+                git branch: 'main', url: 'https://github.com/rahulsanghavimca009/springboot-hello.git'
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh 'docker stop springboot-hello || true'
                 sh 'docker rm springboot-hello || true'
-                sh 'docker run -d -p 8080:8080 --name springboot-hello springboot-hello'
+                sh 'docker run -d -p 8081:8081 --name springboot-hello springboot-hello'
             }
         }
     }
